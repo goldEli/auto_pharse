@@ -167,14 +167,18 @@ except Exception as e:
 
 # 定义要处理的页面列表
 pages_to_process = [
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/activity-backend-language/locales",
+    #     "name": "activity-backend-language",
+    #     "source": "en-US"
+    # },
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/test/locales",
+    #     "name": "test"
+    # },
     {
-        "url": "https://app.phrase.com/accounts/weex-global/projects/activity-backend-language/locales",
-        "name": "activity-backend-language",
-        "source": "en-US"
-    },
-    {
-        "url": "https://app.phrase.com/accounts/weex-global/projects/test/locales",
-        "name": "test"
+        "url": "https://app.phrase.com/accounts/weex-global/projects/activity-language/locales",
+        "name": "activity-language",
     }
     # 可以继续添加更多页面
 ]
