@@ -19,7 +19,7 @@ def process_locale_page(driver, page_url, page_name, source="en-US"):
         page_name: 页面名称（用于日志）
         source: 源语言（默认en-US）
     """
-    print(f"\n开始处理{page_name}页面...")
+    print(f"\n开始处理{page_name}页面...{source}")
     driver.get(page_url)
     time.sleep(3)
 
@@ -57,7 +57,7 @@ def process_locale_page(driver, page_url, page_name, source="en-US"):
                     print(f"已对{page_name}页面第 {i+1} 个元素执行mouseenter事件")
                     
                     # 等待一下让DOM更新
-                    time.sleep(0.5)
+                    # time.sleep(0.5)
                     
                     # 在element下点击class为'syn_dropdown-menu__dropdown-list'的ul元素中的第三个a标签
                     dropdown_list = current_element.find_element(By.CSS_SELECTOR, "ul.syn_dropdown-menu__dropdown-list")
@@ -95,7 +95,7 @@ def process_locale_page(driver, page_url, page_name, source="en-US"):
                                 
                                 time.sleep(0.5)
 
-                                txt = "en-US"
+                                txt = source
                                 if isEmpty:
                                     txt = ""
                                 
@@ -175,12 +175,92 @@ pages_to_process = [
     # {
     #     "url": "https://app.phrase.com/accounts/weex-global/projects/test/locales",
     #     "name": "test"
+    #     "source": "en-US"
     # },
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/activity-language/locales",
+    #     "name": "activity-language",
+    #     "source": "en"
+    # },
+    # "affiliate-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/affiliate-language/locales",
+    #     "name": "affiliate-language",
+    #     # "source": "en"
+    # },
+    # "app-language", 
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/app-language/locales",
+    #     "name": "app-language",
+    #     "source": "en_US"
+    # },
+    # # "asset-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/asset-language/locales",
+    #     "name": "asset-language",
+    #     "source": "en-US"
+    # },
+    # # "gateway-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/gateway-language/locales",
+    #     "name": "gateway-language",
+    #     "source": "en-US"
+    # },
+    # "mix-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/mix-language/locales",
+    #     "name": "mix-language",
+    #     "source": "en-US"
+    # },
+    # # "msg-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/msg-language/locales",
+    #     "name": "msg-language",
+    #     "source": "en-US"
+    # },
+    # # "new-trace-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/new-trace-language/locales",
+    #     "name": "new-trace-language",
+    #     "source": "en-US"
+    # },
+    # # "spot-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/spot-language/locales",
+    #     "name": "spot-language",
+    #     "source": "en-US"
+    # },
+    # # "trade-language",
+    # {
+    #     "url": "https://app.phrase.com/accounts/weex-global/projects/trade-language/locales",
+    #     "name": "trade-language",
+    #     "source": "en"
+
+    # },
+    # "unimargin-language",
     {
-        "url": "https://app.phrase.com/accounts/weex-global/projects/activity-language/locales",
-        "name": "activity-language",
-    }
-    # 可以继续添加更多页面
+        "url": "https://app.phrase.com/accounts/weex-global/projects/unimargin-language/locales",
+        "name": "unimargin-language",
+        "source": "en-US"
+    },
+    # "user-language",
+    {
+        "url": "https://app.phrase.com/accounts/weex-global/projects/user-language/locales",
+        "name": "user-language",
+        "source": "en-US"
+    },
+    # "web-language", en
+    {
+        "url": "https://app.phrase.com/accounts/weex-global/projects/web-language/locales",
+        "name": "web-language",
+        "source": "en"
+    },
+    # "web-pages-language"
+    {
+        "url": "https://app.phrase.com/accounts/weex-global/projects/web-pages-language/locales",
+        "name": "web-pages-language",
+        "source": "en"
+    },
 ]
 
 # 处理所有页面

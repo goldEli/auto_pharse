@@ -147,20 +147,19 @@ def open_pages_in_tabs(project_name):
 if __name__ == "__main__":
     list = [
         # "activity-backend-language",
-        # "activity-language",
-        # "affiliate-language",
-        "app-language",
+        # "activity-language", en
+        "affiliate-language",
+        # "app-language", en_US
         # "asset-language",
         # "gateway-language",
         # "mix-language",
         # "msg-language",
         # "new-trace-language",
-        # "phrase-demo",
         # "spot-language",
         # "trade-language",
         # "unimargin-language",
         # "user-language",
-        # "web-language",
+        # "web-language", en
         # "web-pages-language"
     ]
     for project in list:
