@@ -8,6 +8,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 import time
+import json
+from config import config
+
+with open('config.json', 'r') as f:
+    config = json.load(f)
+
+phrase_project_url = config['phrase_project_url']
 
 def process_locale_page(driver, page_url, page_name, source="en-US"):
     """
@@ -167,100 +174,94 @@ except Exception as e:
 
 # 定义要处理的页面列表
 pages_to_process = [
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/activity-backend-language/locales",
-    #     "name": "activity-backend-language",
-    #     "source": "en-US"
-    # },
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/test/locales",
-    #     "name": "test"
-    #     "source": "en-US"
-    # },
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/activity-language/locales",
-    #     "name": "activity-language",
-    #     "source": "en"
-    # },
-    # "affiliate-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/affiliate-language/locales",
-    #     "name": "affiliate-language",
-    #     # "source": "en"
-    # },
-    # "app-language", 
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/app-language/locales",
-    #     "name": "app-language",
-    #     "source": "en_US"
-    # },
-    # # "asset-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/asset-language/locales",
-    #     "name": "asset-language",
-    #     "source": "en-US"
-    # },
-    # # "gateway-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/gateway-language/locales",
-    #     "name": "gateway-language",
-    #     "source": "en-US"
-    # },
-    # "mix-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/mix-language/locales",
-    #     "name": "mix-language",
-    #     "source": "en-US"
-    # },
-    # # "msg-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/msg-language/locales",
-    #     "name": "msg-language",
-    #     "source": "en-US"
-    # },
-    # # "new-trace-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/new-trace-language/locales",
-    #     "name": "new-trace-language",
-    #     "source": "en-US"
-    # },
-    # # "spot-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/spot-language/locales",
-    #     "name": "spot-language",
-    #     "source": "en-US"
-    # },
-    # # "trade-language",
-    # {
-    #     "url": "https://app.phrase.com/accounts/weex-global/projects/trade-language/locales",
-    #     "name": "trade-language",
-    #     "source": "en"
-
-    # },
-    # "unimargin-language",
     {
-        "url": "https://app.phrase.com/accounts/weex-global/projects/unimargin-language/locales",
+        "url": phrase_project_url + "activity-backend-language/locales",
+        "name": "activity-backend-language",
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "test/locales",
+        "name": "test"
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "activity-language/locales",
+        "name": "activity-language",
+        "source": "en"
+    },
+    "affiliate-language",
+    {
+        "url": phrase_project_url + "affiliate-language/locales",
+        "name": "affiliate-language",
+        "source": "en"
+    },
+    "app-language", 
+    {
+        "url": phrase_project_url + "app-language/locales",
+        "name": "app-language",
+        "source": "en_US"
+    },
+    {
+        "url": phrase_project_url + "asset-language/locales",
+        "name": "asset-language",
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "gateway-language/locales",
+        "name": "gateway-language",
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "mix-language/locales",
+        "name": "mix-language",
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "msg-language/locales",
+        "name": "msg-language",
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "new-trace-language/locales",
+        "name": "new-trace-language",
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "spot-language/locales",
+        "name": "spot-language",
+        "source": "en-US"
+    },
+    {
+        "url": phrase_project_url + "trade-language/locales",
+        "name": "trade-language",
+        "source": "en"
+
+    },
+    {
+        "url": phrase_project_url + "unimargin-language/locales",
         "name": "unimargin-language",
         "source": "en-US"
     },
-    # "user-language",
     {
-        "url": "https://app.phrase.com/accounts/weex-global/projects/user-language/locales",
+        "url": phrase_project_url + "user-language/locales",
         "name": "user-language",
         "source": "en-US"
     },
-    # "web-language", en
     {
-        "url": "https://app.phrase.com/accounts/weex-global/projects/web-language/locales",
+        "url": phrase_project_url + "web-language/locales",
         "name": "web-language",
         "source": "en"
     },
-    # "web-pages-language"
     {
-        "url": "https://app.phrase.com/accounts/weex-global/projects/web-pages-language/locales",
+        "url": phrase_project_url + "web-pages-language/locales",
         "name": "web-pages-language",
         "source": "en"
     },
+    {
+        "url": phrase_project_url + "affiliate-language/locales",
+        "name": "affiliate-language",
+        "source": "en"
+    }
 ]
 
 # 处理所有页面
