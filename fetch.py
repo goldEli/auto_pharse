@@ -73,11 +73,7 @@ def get_project_info(project_id):
     Returns:
         dict: Project information or None if error
     """
-    headers = {
-        'Authorization': f'token {access_token}',
-        'User-Agent': 'My Python App (contact@example.com)',  # Required header
-        'Content-Type': 'application/json'
-    }
+    headers = phrase_headers
     
     
     url = f"{base_url}/projects/{project_id}"
