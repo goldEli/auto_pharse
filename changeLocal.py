@@ -16,8 +16,8 @@ phrase_project_url = config['phrase_project_url']
 locales_list = [
     # en-US
     {
-        "locale": "es-US",
-        "names": ["en-us", "en-US", "en_us", "en_US", "en", "esUS"],
+        "locale": "en-US",
+        "names": ["en-us", "en-US", "en_us", "en_US", "en", "enUS"],
     },
     # zh-CN
     {
@@ -157,6 +157,9 @@ def process_locale_page(driver, page_url, page_name, source="en-US"):
                     By.CSS_SELECTOR,
                     ".pa-list-items .syn_dropdown__content.syn_dropdown-menu__dropdown.hidden"
                 )))
+
+                if i != 1:
+                    continue
 
                 if i < len(elements):
                     current_element = elements[i]
