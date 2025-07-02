@@ -309,13 +309,13 @@ def update_locale(project_id, locale_id, name, en_locale_id):
     response = requests.request("PATCH", url, json=payload, headers=headers)
 
     if response.status_code != 200:
-        # print(payload)
+        print(payload)
         # 打印错误终端程序
         print(f"Error: {response.status_code} - {response.text}")
         exit()
         return False
     # print payload string
-    print(json.dumps(payload, indent=4))
+    # print(json.dumps(payload, indent=4))
     print(f"update locale: {name} success")
     return True
 
