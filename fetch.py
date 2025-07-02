@@ -221,7 +221,7 @@ def get_payload_by_locale_name(name, en_locale_id):
             "fallback_locale_id": en_locale_id,
         }
     # ja-JP
-    if name in ['ja', 'ja-jp', 'ja_jp', 'jap']:
+    if name in ['ja', 'ja-jp', 'ja_jp', 'jajp']:
         return {
             "code": "ja",
             "default": False,
@@ -309,7 +309,7 @@ def update_locale(project_id, locale_id, name, en_locale_id):
     response = requests.request("PATCH", url, json=payload, headers=headers)
 
     if response.status_code != 200:
-        print(payload)
+        # print(payload)
         # 打印错误终端程序
         print(f"Error: {response.status_code} - {response.text}")
         exit()
