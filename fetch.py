@@ -157,7 +157,7 @@ def get_payload_by_locale_name(name, en_locale_id):
             "fallback_locale_id": en_locale_id,
         }
     # ar-SA
-    if name in ['ar', 'ar-sa', 'ar_sa', 'arsa']:
+    if name in ['ar', 'ar-sa', 'ar_sa', 'arsa', 'ar_ar', 'ar-ar','arar']:
         return {
             "code": "ar",
             "default": False,
