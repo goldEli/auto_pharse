@@ -284,6 +284,16 @@ def get_payload_by_locale_name(name, en_locale_id):
             "fallback_locale_id": en_locale_id,
         }
 
+    # en_TR
+    if name in ['en_tr', 'en-tr', 'entr']:
+        return {
+            "code": "en-TR",
+            "default": False,
+            "main": False,
+            "source_locale_id": en_locale_id,
+            "fallback_locale_id": en_locale_id,
+        }
+
 
     # 如果没找到，报错终端程序
     raise Exception(f"Locale {name} not found")
@@ -339,20 +349,29 @@ def update_project(project):
 
     english_locale_id = get_english_locale_id(locales)
 
-    print(f"english_locale_id: {english_locale_id}")
+    # print(f"english_locale_id: {english_locale_id}")
     # print(locales)
 
+    # print(f"locales: {locales}")
+    print("locales length: ", len(locales))
+    # print("all locales name: ", [locale['name'] for locale in locales])
     # update chinese locale first 
     chinese_locale = get_chinese_locale(locales)
     if chinese_locale:
         update_locale(project_id, chinese_locale['id'], chinese_locale['name'], english_locale_id)
+    else:
+        print("chinese locale not found")
+        exit()
 
     # update english locale
     english_locale = get_english_locale(locales)
     if english_locale:
         update_locale(project_id, english_locale['id'], english_locale['name'], english_locale_id)
+    else:
+        print("english locale not found")
+        exit()
 
-    # 更新项目中的所有语言
+    # 更新项目中的语言
     for locale in locales:
         if locale['id'] == chinese_locale['id'] or locale['id'] == english_locale['id']:
             continue
@@ -366,6 +385,11 @@ for project in projects:
     print(f"Project: {project['name']} (ID: {project['id']})")
     project_name = project['name']
     project_id = project['id']
+
+    # ignore project name 'test'
+    if project_name == 'test':
+        continue
+
     print("="*100)
     print(f"start update project: {project_name}")
     update_project(project)
