@@ -7,6 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from libs.phrase_api import get_all_projects
 
 with open('config.json', 'r') as f:
     config = json.load(f)
@@ -25,51 +26,8 @@ phrase_headers = {
 
 base_url="https://api.phrase.com/v2"
 
-def get_all_projects_strings():
-    """
-    Get all projects from Phrase Strings API with pagination
-    """
-    all_projects = []
-    page = 1
-    per_page = 100  # Maximum allowed per page
-    
-    headers = {
-        'Authorization': f'token {access_token}',
-        'User-Agent': 'My Python App (contact@example.com)'  # Required header
-    }
-    
-    while True:
-        # Make request to list projects endpoint
-        url = f"{base_url}/projects"
-        params = {
-            'page': page,
-            'per_page': per_page
-        }
-        
-        response = requests.get(url, headers=headers, params=params)
-        
-        if response.status_code == 200:
-            projects = response.json()
-            
-            # If no projects returned, we've reached the end
-            if not projects:
-                break
-                
-            all_projects.extend(projects)
-            
-            # Check if we got fewer projects than requested (last page)
-            if len(projects) < per_page:
-                break
-                
-            page += 1
-        else:
-            print(f"Error: {response.status_code} - {response.text}")
-            break
-    
-    return all_projects
-
-
-all_projects = get_all_projects_strings()
+# Get all projects
+all_projects = get_all_projects(access_token, base_url)
 all_projects_names = [project['name'] for project in all_projects]
 print(all_projects_names)
 
