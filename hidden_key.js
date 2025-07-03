@@ -1,7 +1,7 @@
 
 
 
-function update_key(key) {
+export function update_key(key) {
     fetch("https://app.phrase.com/accounts/weex-global/projects/web-language/keys/94828c695c86484fe41607b514d27604", {
         "headers": {
             "accept": "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01",

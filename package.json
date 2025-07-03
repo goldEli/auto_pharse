@@ -1,13 +1,21 @@
 {
-  "name": "auto_pharse",
+  "name": "excel-reader",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "读取Excel文件第一列数据的工具",
+  "main": "read_excel.js",
+  "type": "commonjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node read_excel.js",
+    "read-excel": "node read_excel.js"
   },
-  "keywords": [],
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  },
+  "keywords": [
+    "excel",
+    "xlsx",
+    "data-processing"
+  ],
   "author": "",
-  "license": "ISC",
-  "packageManager": "pnpm@10.10.0"
+  "license": "MIT"
 }
